@@ -1,0 +1,25 @@
+services:
+  server:
+    container_name: server
+    ports: 
+      - 8080:8080
+    build:
+      context: server
+    environment:
+      - DB_HOST=mongodb://mongo-db:27017/guardz
+    depends_on:
+      - mongo-db
+  client:
+    container_name: client
+    ports: 
+      - 80:80
+    build:
+      context: client
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080
+    depends_on:
+      - server
+  mongo-db:
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
