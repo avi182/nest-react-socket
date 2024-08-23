@@ -1,8 +1,7 @@
 FROM node:14-alpine AS builder
 ENV NODE_ENV production
 
-ARG REACT_APP_API_URL
-ENV REACT_APP_API_URL $REACT_APP_API_URL
+ENV REACT_APP_API_URL http://localhost:8080
 
 # Add a work directory
 WORKDIR /app
