@@ -210,7 +210,6 @@ export const DashboardPage = () => {
             paginationModel={paginationModel}
             onPaginationModelChange={setPaginationModel}
             pageSizeOptions={[5, 10, 25]}
-            checkboxSelection
             rowCount={totalCount}
           />
         )}
